@@ -1,5 +1,7 @@
 # NBA Fantasy Modelling & Optimisation Notebook
 
+Entire Python notebook can be found in the repository named: **analysis.ipynb**.
+
 ## Tools 
 
 - Python  
