@@ -1,5 +1,18 @@
 # NBA Fantasy Modelling & Optimisation Notebook
 
+## Tools 
+
+- Python  
+- Pandas, NumPy  
+- Scikit-learn  
+- LightGBM  
+- XGBoost  
+- Matplotlib  
+- Seaborn
+- PuLP  
+
+---
+
 ## Overview
 
 This notebook builds predictive models to estimate NBA player fantasy performance and uses these predictions to construct optimal fantasy teams under salary cap constraints. Multiple machine learning models are compared and combined via ensembling to improve prediction accuracy.
@@ -31,6 +44,33 @@ The notebook applies the ESPN fantasy scoring system to convert raw player stati
 - **Fantasy Points Per Game (FPPG)**  
 
 This creates a consistent target variable for modelling player performance.
+
+---
+
+### Salary Cap Constrained Optimisation  
+
+A key component of the notebook is constructing **optimal fantasy teams under a salary cap constraint**.
+
+This involves:
+- Using predicted player performance as the objective  
+- Incorporating salary as a constraint  
+- Selecting a fixed number of players  
+
+The problem is formulated as an optimisation task similar to:
+- Knapsack / integer programming  
+
+**Outcome:**
+- Selection of the highest-value team given budget limitations  
+- More realistic team construction compared to unconstrained selection  
+
+---
+
+### Team Selection Strategy  
+
+The notebook:
+- Ranks players based on predicted performance  
+- Applies constraints (salary cap, team size, positions if applicable)  
+- Constructs optimal lineups using model outputs  
 
 ---
 
@@ -77,35 +117,6 @@ Comparisons across models allow identification of:
 
 ---
 
-### Salary Cap Constrained Optimisation  
-
-A key component of the notebook is constructing **optimal fantasy teams under a salary cap constraint**.
-
-This involves:
-- Using predicted player performance as the objective  
-- Incorporating salary as a constraint  
-- Selecting a fixed number of players  
-
-The problem is formulated as an optimisation task similar to:
-- Knapsack / integer programming  
-
-**Outcome:**
-- Selection of the highest-value team given budget limitations  
-- More realistic team construction compared to unconstrained selection  
-
----
-
-### Team Selection Strategy  
-
-The notebook:
-- Ranks players based on predicted performance  
-- Applies constraints (salary cap, team size, positions if applicable)  
-- Constructs optimal lineups using model outputs  
-
-This bridges the gap between **prediction → decision-making**, which is a key strength of the project.
-
----
-
 ### Visualisation & Insights  
 
 Visualisations are used to:
@@ -127,22 +138,3 @@ These help interpret both:
 - Data-driven team selection significantly improves decision quality under budget limits  
 
 ---
-
-## Tools & Libraries  
-
-- Python  
-- Pandas, NumPy  
-- Scikit-learn  
-- LightGBM  
-- XGBoost  
-- Matplotlib  
-- Seaborn  
-
----
-
-## Future Improvements  
-
-- Incorporate injury and availability features  
-- Model games played separately for better total point prediction  
-- Add positional constraints explicitly into optimisation  
-- Explore advanced ensembling (stacking instead of averaging)  
